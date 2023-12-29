@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
-import { Navbar, Container } from "react-bootstrap";
-import logo from "..assets/img/logo.svg";
-import navIcon1 from "..assets/img/nav-icon1.svg";
-import navIcon2 from "..assets/img/nav-icon2.svg";
-import navIcon3 from "..assets/img/nav-icon3.svg";
+import { Navbar, Nav, Container } from "react-bootstrap";
+// import logo from "../assets/img/logo.svg";
+import navIcon1 from "../assets/img/nav-icon1.svg";
+// import navIcon2 from "../assets/img/nav-icon2.svg";
+import navIcon3 from "../assets/img/github.svg";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
-  const [scolled, setScolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
       if (window.scrollY > 50) {
-        setScolled(true);
+        setScrolled(true);
       } else {
-        setScolled(false);
+        setScrolled(false);
       }
     };
 
@@ -28,10 +28,11 @@ export const NavBar = () => {
   };
 
   return (
-    <Navbar expand="lg" className={scolled ? "scolled" : ""}>
+    <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
       <Container>
         <Navbar.Brand href="#home">
-          <img src={logo} alt="Logo" />
+          {/* <img src={logo} alt="Logo" /> */}
+          <Nav.Link>PORTFOLIO</Nav.Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <span className="navbar-toggler-icon"></span>
@@ -71,9 +72,9 @@ export const NavBar = () => {
               <a href="#">
                 <img src={navIcon1} alt="" />
               </a>
-              <a href="#">
+              {/* <a href="#">
                 <img src={navIcon2} alt="" />
-              </a>
+              </a> */}
               <a href="#">
                 <img src={navIcon3} alt="" />
               </a>
